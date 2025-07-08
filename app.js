@@ -1,4 +1,5 @@
 const play = document.querySelector('#letsPlay');
+const duplicate = document.querySelector('#duplicate');
 const welcome = document.querySelector('.welcome');
 const board = document.querySelector('.board');
 const circleBox = document.querySelectorAll('.circleBox');
@@ -16,6 +17,9 @@ let selectedColor = null;
 let guess = [];
 let allowDuplicates = false;
 
+let audio = new Audio('music2.mp3');
+let hoverS = new Audio('hover.mp3');
+
 const menu = document.querySelector('#menu');
 const returnMenu = document.querySelector('#rmenu');
 const rulesClose = document.querySelector('#rulesClose');
@@ -24,6 +28,23 @@ const rules = document.querySelector('.rules');
 const restart = document.querySelector('#restart');
 const won = document.querySelector('.won');
 const star = document.querySelectorAll('.star');
+
+play.addEventListener('mouseover',()=>{
+  hoverS.play();
+  hoverS.volume = 0.5;
+});
+
+howTo.addEventListener('mouseover',()=>{
+  hoverS.play();
+  hoverS.volume = 0.5;
+});
+
+duplicate.addEventListener('mouseover',()=>{
+  hoverS.play();
+  hoverS.volume = 0.5;
+})
+
+
 
 howTo.addEventListener('click',()=>{
   welcome.style.display = 'none';
@@ -55,6 +76,8 @@ menu.addEventListener('click', () => {
 
   checkBtn.disabled = true;
   checkBtn.style.backgroundColor = 'gray';
+  audio.pause();
+  audio.currentTime = 0;
 });
 
 rmenu.addEventListener('click', () => {
@@ -78,6 +101,8 @@ rmenu.addEventListener('click', () => {
 
   checkBtn.disabled = true;
   checkBtn.style.backgroundColor = 'gray';
+  audio.pause();
+  audio.currentTime = 0;
 });
 
 
@@ -107,6 +132,9 @@ function playGame() {
 
     generateSecretKey();
     highlightRow(totalRows - 1);
+    
+    audio.volume = 0.5;
+    audio.play();
   });
 }
 
@@ -207,10 +235,8 @@ checkBtn.addEventListener('click', () => {
 const stars = document.querySelectorAll('.star');
 
 if (guess.every((color, i) => color === secret[i])) {
-  // Reset all stars to default color
   stars.forEach(star => star.style.color = 'white');
 
-  // Apply star colors based on performance
   if (turns <= 3) {
     stars.forEach(star => star.style.color = 'yellow');
   } else if (turns <= 6) {
@@ -253,7 +279,8 @@ returnLostBtn.addEventListener('click', () => {
   document.querySelector('.lost').style.display = 'none';
   welcome.style.display = '';
   board.style.display = 'none';
-  resetGame(); // Optional: if you want to clear state
+  audio.pause();
+  audio.currentTime = 0;
 });
 
 
