@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Mastermind Game</title>
+</head>
+<body class="bg-[#091540] min-h-screen flex items-center justify-center px-4">
+
+  <div class="welcome text-black bg-[#7692ff] flex flex-col items-center justify-center gap-6 p-6 sm:p-10 rounded-3xl shadow-lg border w-full max-w-md mx-auto max-sm:min-h-96">
+  <h1 class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight">
+    Welcome To Mastermind Game
+  </h1>
+
+  <button class="font-bold text-white rounded-lg text-base sm:text-lg w-full h-14 bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in" id="letsPlay">
+    Play
+  </button>
+
+  <button class="font-bold text-white rounded-lg text-base sm:text-lg w-full h-14 bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in" id="howTo">
+    Game Rules
+  </button>
+
+  <button class="font-bold text-white rounded-lg text-base sm:text-lg w-full h-14 bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in" id="duplicate">
+    Allow Duplicates
+  </button>
+</div>
+
+
+  <div class="board bg-[#7692ff] w-96 h-auto px-3 py-5 rounded-xl hidden">
+    <div class="menu-btn flex justify-between py-5">
+      <button id="menu" class="bg-[#091540] text-white font-bold text-base w-40 h=14 p-2 rounded-lg hover:bg-white hover:text-black transition duration-300 ease-in">Home</button>
+      <button id="restart" class="bg-[#091540] text-white font-bold text-base w-40 h=14 p-2 rounded-lg hover:bg-white hover:text-black transition duration-300 ease-in">Restart</button>
+    </div>
+    <div class="bg-[#52d1dc] py-2 rounded-xl">
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white" ></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full" data-index="0"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+        </div>
+      </div>
+      
+      <div class="circleBox flex justify-between items-center">
+        <div class="colorCircle w-[65%] grid grid-cols-4 place-items-center py-2">
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+          <div class="circles bg-slate-500 w-8 h-8 rounded-full"></div>
+        </div>
+        <div class="results w-[30%] grid grid-cols-4 place-items-center px-2">
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          <div class="w-4 h-4 rounded-full bg-white"></div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="colorsOption py-4
+    ">
+      <div class="grid grid-cols-4 place-items-center py-2">
+          <div class="colorCircle bg-[#FF0000] w-10 h-10 rounded-full" draggable="false" data-color="red"></div>
+          <div class="colorCircle bg-[#FFFF00] w-10 h-10 rounded-full" draggable="false"  data-color="yellow"></div>
+          <div class="colorCircle bg-[#008000] w-10 h-10 rounded-full" draggable="false"  data-color="green"></div>
+          <div class="colorCircle bg-[#800080] w-10 h-10 rounded-full" draggable="false"  data-color="purple"></div>
+      </div>
+      <div class="grid grid-cols-4 place-items-center py-2">
+          <div class="colorCircle bg-[#964B00] w-10 h-10 rounded-full" draggable="false"  data-color="brown"></div>
+          <div class="colorCircle bg-[#FFA500] w-10 h-10 rounded-full" draggable="false"  data-color="orange"></div>
+          <div class="colorCircle bg-[#008080] w-10 h-10 rounded-full" draggable="false"  data-color="teal"></div>
+          <div class="colorCircle bg-[#4B0082] w-10 h-10 rounded-full" draggable="false"  data-color="indigo"></div>
+      </div>
+      
+    </div>
+
+    <div class="options flex flex-col items-center gap-y-1">
+      <button id="check" class="bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in text-white font-bold text-base w-40 h=14 p-2 rounded-lg">Check</button>
+    </div>
+  </div>
+<div class="rules bg-[#7692ff] rounded-xl flex items-center justify-center flex-col py-6 px-4 sm:px-8 max-w-full  mx-auto text-black hidden">
+  <h1 class="self-end font-bold text-2xl cursor-pointer" id="rulesClose">&times;</h1>
+
+  <h1 class="font-bold text-3xl sm:text-4xl text-center mb-4">Mastermind Game Rules</h1>
+
+  <div class="w-full space-y-6">
+    <div>
+      <h2 class="font-semibold text-xl sm:text-2xl">Objective</h2>
+      <p class="font-medium text-base">The goal of Mastermind is to guess the secret combination of 4 colored pegs before you run out of attempts or time.</p>
+    </div>
+
+    <div>
+      <h2 class="font-semibold text-xl sm:text-2xl">Secret Code</h2>
+      <p class="font-medium text-base">A secret code consisting of four colors is randomly generated at the start of each game.</p>
+      <ol class="list-decimal list-inside font-normal text-base mt-2 space-y-1">
+        <li>If "Allow Duplicate" is enabled: Colors in the secret code may repeat (e.g., red, red, yellow, green).</li>
+        <li>If "Allow Duplicate" is disabled: All four colors in the secret code will be unique.</li>
+      </ol>
+    </div>
+
+    <hr class="border-t-2 border-black" />
+
+    <div>
+      <h2 class="font-semibold text-xl sm:text-2xl">Attempts</h2>
+      <p class="font-medium text-base">You have a total of 10 attempts to crack the code. The game concludes if you use all 10 attempts without successfully guessing the code.</p>
+    </div>
+
+    <hr class="border-t-2 border-black" />
+
+    <div>
+      <h2 class="font-semibold text-xl sm:text-2xl">Feedback (After Each Guess)</h2>
+      <p class="font-medium text-base">After each guess you submit, you'll receive immediate feedback through color-coded dots:</p>
+      <ol class="list-decimal list-inside font-normal text-base mt-2 space-y-1">
+        <li>Green: The color is correct, and it's in the correct position</li>
+        <li>Red: The color is correct, but it's in the wrong position.</li>
+        <li>Black: The color is not present in the secret code at all.</li>
+      </ol>
+    </div>
+
+    <hr class="border-t-2 border-black" />
+
+    <div>
+      <h2 class="font-semibold text-xl sm:text-2xl">How to Play</h2>
+      <ol class="list-decimal list-inside font-medium text-base mt-2 space-y-1">
+        <li>Start the Game: Click the “Play” button to begin.</li>
+        <li>Enable/Disable Duplicates (Optional): Click “Allow Duplicate” before starting.</li>
+        <li>Select a Color: Choose any color from the palette.</li>
+        <li>Place Your Color: Click on a guess slot to place it.</li>
+        <li>Fill All 4 Slots: Then click the “Check” button.</li>
+        <li>Check Your Guess: Feedback dots will appear.</li>
+        <li>Next Turn: Keep guessing until you win or run out of attempts.</li>
+        <li>Restart the Game: Click “Restart Game” anytime.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+  <div class="won text-black bg-green-500 flex flex-col items-center justify-center gap-6 p-6 sm:p-10 rounded-3xl shadow-lg border w-full max-w-md mx-auto max-sm:min-h-96 backdrop-blur-3xl hidden">
+    <h1 class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight"> YOU WON!</h1>
+  <div class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight flex justify-center gap-2">
+    <h1 class="star">★</h1>
+    <h1 class="star">★</h1>
+    <h1 class="star">★</h1>
+  </div>
+
+  <button class="font-bold text-white rounded-lg text-base sm:text-lg w-full h-14 bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in" id="rmenu">
+    Return to Menu
+  </button>
+  </div>
+
+<div class="lost text-black bg-[#ff6b6b] flex flex-col items-center justify-center gap-6 p-6 sm:p-10 rounded-3xl shadow-lg border w-full max-w-md mx-auto max-sm:min-h-96 backdrop-blur-3xl hidden">
+  <h1 class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight ">Game Over!</h1>
+  <h2 class="text-center text-xl font-bold">The correct combination was:</h2>
+  <div id="secretReveal" class="flex gap-4 justify-center"></div>
+
+  <button class="font-bold text-white rounded-lg text-base sm:text-lg w-full h-14 bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in" id="rmenuLost">
+    Return to Menu
+  </button>
+</div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
