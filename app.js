@@ -245,11 +245,16 @@ if (guess.every((color, i) => color === secret[i])) {
   } else {
     stars[0].style.color = 'yellow';
   }
+  const turnCount = document.getElementById("turnCount");
+  if (turnCount) {
+    turnCount.textContent = turns+1;
+  }
 
   won.style.display = 'block';
   board.style.display = 'none';
   return;
 }
+
 
 
   if (turns < totalRows - 1) {

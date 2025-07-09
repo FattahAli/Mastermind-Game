@@ -265,12 +265,20 @@
 </div>
 
   <div class="won text-black bg-green-500 flex flex-col items-center justify-center gap-6 p-6 sm:p-10 rounded-3xl shadow-lg border w-full max-w-md mx-auto max-sm:min-h-96 backdrop-blur-3xl hidden">
-    <h1 class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight"> YOU WON!</h1>
-  <div class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight flex justify-center gap-2">
-    <h1 class="star">★</h1>
-    <h1 class="star">★</h1>
-    <h1 class="star">★</h1>
+
+  <h1 class="text-center font-extrabold text-2xl sm:text-3xl md:text-4xl leading-tight">
+    YOU WON!
+  </h1>
+  <div class="text-center font-extrabold text-3xl sm:text-4xl md:text-5xl flex justify-center gap-2 text-yellow-400">
+    <h1 class="star animate-bounce">★</h1>
+    <h1 class="star animate-bounce delay-100">★</h1>
+    <h1 class="star animate-bounce delay-200">★</h1>
   </div>
+
+  <p class="text-lg sm:text-xl font-semibold text-center">
+  You cracked the code in <span id="turnCount" class="font-bold">X</span> attempts!
+</p>
+
 
   <button class="font-bold text-white rounded-lg text-base sm:text-lg w-full h-14 bg-[#091540] hover:bg-white hover:text-black transition duration-300 ease-in" id="rmenu">
     Return to Menu
